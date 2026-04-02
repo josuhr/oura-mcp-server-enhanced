@@ -46,8 +46,8 @@ All tools with date parameters accept optional `start_date` and `end_date` in `Y
 ### Option A: Claude Desktop Extension (recommended)
 
 1. Download the latest `oura-mcp-server-enhanced.mcpb` from [Releases](https://github.com/josuhr/oura-mcp-server-enhanced/releases)
-2. Open Claude Desktop > Settings > Extensions
-3. Select the `.mcpb` file and follow the prompts
+2. In Claude Desktop, go to **Settings > Extensions > Advanced Settings** and enable **Install from file**
+3. Back on the Extensions page, click **Add from file** and select the downloaded `.mcpb` file
 4. Enter your [Oura API Token](https://cloud.ouraring.com/personal-access-tokens) when prompted
 
 ### Option B: Manual Setup
