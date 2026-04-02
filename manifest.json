@@ -1,0 +1,56 @@
+{
+  "manifest_version": "0.4",
+  "name": "oura-mcp-server-enhanced",
+  "display_name": "Oura Ring",
+  "version": "0.1.0",
+  "description": "Access your Oura Ring health data -- sleep, activity, heart rate, stress, SpO2, workouts, readiness, and more.",
+  "long_description": "MCP server providing 17 tools for the full Oura Ring API v2. Query detailed sleep sessions, daily activity, heart rate trends, stress levels, blood oxygen, workouts, readiness scores, resilience data, VO2 max, and more. All date parameters are optional -- omit them for recent data or specify a range.",
+  "author": {
+    "name": "josuhr",
+    "url": "https://github.com/josuhr"
+  },
+  "repository": "https://github.com/josuhr/oura-mcp-server-enhanced",
+  "license": "MIT",
+  "server": {
+    "type": "uv",
+    "entry_point": "src/oura_mcp_server/server.py",
+    "env": {
+      "OURA_API_TOKEN": "${user_config.oura_api_token}"
+    }
+  },
+  "tools": [
+    { "name": "get_sleep_data", "description": "Detailed sleep sessions with stages, heart rate, HRV, and breathing rate" },
+    { "name": "get_daily_sleep", "description": "Daily sleep scores and contributor breakdown" },
+    { "name": "get_sleep_time", "description": "Recommended and actual sleep timing windows" },
+    { "name": "get_daily_readiness", "description": "Readiness scores and contributors" },
+    { "name": "get_daily_resilience", "description": "Recovery capacity and stress tolerance" },
+    { "name": "get_daily_activity", "description": "Steps, calories, active time, and MET levels" },
+    { "name": "get_workouts", "description": "Workout sessions with type, calories, distance, duration" },
+    { "name": "get_sessions", "description": "Guided sessions (meditation, breathing) with biometrics" },
+    { "name": "get_vo2_max", "description": "VO2 max cardiovascular fitness estimates" },
+    { "name": "get_heart_rate", "description": "Heart rate at 5-minute intervals" },
+    { "name": "get_daily_spo2", "description": "Daily blood oxygen saturation" },
+    { "name": "get_daily_stress", "description": "Daily stress levels and recovery summary" },
+    { "name": "get_daily_cardiovascular_age", "description": "Estimated cardiovascular age" },
+    { "name": "get_personal_info", "description": "User profile (age, weight, height)" },
+    { "name": "get_ring_configuration", "description": "Ring model, color, firmware, setup date" },
+    { "name": "get_rest_mode", "description": "Rest mode periods and schedules" },
+    { "name": "get_tags", "description": "User-created lifestyle tags and annotations" }
+  ],
+  "user_config": {
+    "oura_api_token": {
+      "type": "string",
+      "title": "Oura API Token",
+      "description": "Personal Access Token from https://cloud.ouraring.com/personal-access-tokens",
+      "required": true,
+      "sensitive": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "python": ">=3.12"
+    }
+  },
+  "keywords": ["oura", "health", "sleep", "fitness", "heart-rate", "wearable"]
+}

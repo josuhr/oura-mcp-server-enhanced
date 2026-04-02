@@ -43,11 +43,20 @@ All tools with date parameters accept optional `start_date` and `end_date` in `Y
 
 ## Setup
 
-### 1. Get an Oura API Token
+### Option A: Claude Desktop Extension (recommended)
+
+1. Download the latest `oura-mcp-server-enhanced.mcpb` from [Releases](https://github.com/josuhr/oura-mcp-server-enhanced/releases)
+2. Open Claude Desktop > Settings > Extensions
+3. Select the `.mcpb` file and follow the prompts
+4. Enter your [Oura API Token](https://cloud.ouraring.com/personal-access-tokens) when prompted
+
+### Option B: Manual Setup
+
+#### 1. Get an Oura API Token
 
 Go to [Oura Personal Access Tokens](https://cloud.ouraring.com/personal-access-tokens) and create a new token.
 
-### 2. Install
+#### 2. Install
 
 Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
 
@@ -57,7 +66,7 @@ cd oura-mcp-server-enhanced
 uv venv && uv pip install -e .
 ```
 
-### 3. Configure Claude Desktop
+#### 3. Configure Claude Desktop
 
 Add the following to your `claude_desktop_config.json`:
 
@@ -77,11 +86,19 @@ Add the following to your `claude_desktop_config.json`:
 
 Replace `/path/to/oura-mcp-server-enhanced` with the actual path and `your_token_here` with your Oura API token.
 
-### 4. Run Standalone (optional)
+#### 4. Run Standalone (optional)
 
 ```bash
 export OURA_API_TOKEN="your_token_here"
 oura-mcp-server
+```
+
+### Building the Extension
+
+To build the `.mcpb` extension bundle from source:
+
+```bash
+zip -r oura-mcp-server-enhanced.mcpb manifest.json pyproject.toml uv.lock src/ .python-version -x "src/**/__pycache__/*"
 ```
 
 ## Project Structure
