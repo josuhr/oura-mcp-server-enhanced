@@ -9,13 +9,17 @@
     "name": "josuhr",
     "url": "https://github.com/josuhr"
   },
-  "repository": "https://github.com/josuhr/oura-mcp-server-enhanced",
+  "repository": {
+    "url": "https://github.com/josuhr/oura-mcp-server-enhanced"
+  },
   "license": "MIT",
   "server": {
     "type": "uv",
     "entry_point": "src/oura_mcp_server/server.py",
-    "env": {
-      "OURA_API_TOKEN": "${user_config.oura_api_token}"
+    "mcp_config": {
+      "env": {
+        "OURA_API_TOKEN": "${user_config.oura_api_token}"
+      }
     }
   },
   "tools": [
